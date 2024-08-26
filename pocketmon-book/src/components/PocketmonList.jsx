@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { PokemonContext } from "../context/PokemonContext";
+import MOCK_DATA from "../mock";
 
-const PocketmonList = ({ MOCK_DATA, addCard, setAddCard }) => {
+const PocketmonList = () => {
   const listStyle = {
     width: "934px",
     backgroundColor: "rgb(240, 240, 240)",
@@ -11,6 +13,7 @@ const PocketmonList = ({ MOCK_DATA, addCard, setAddCard }) => {
     display: "grid",
     columnGap: "20px",
   };
+  const { addCard, setAddCard, MOCK_DATA } = useContext(PokemonContext);
   const navi = useNavigate();
   return (
     <div style={listStyle}>

@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { redirect } from "react-router-dom";
+import { PokemonContext } from "../context/PokemonContext";
 
-const DashBoard = ({ addCard, setAddCard }) => {
+const DashBoard = () => {
   const titleStyle = {
     // backgroundColor: "rgb(240, 240, 240)",
     // color: "red",
@@ -9,6 +10,8 @@ const DashBoard = ({ addCard, setAddCard }) => {
     // alignItems: "center",
     // justifyContent: "center",
   };
+
+  const { addCard, setAddCard } = useContext(PokemonContext);
 
   //삭제함수
   //delete 하려면 그 삭제버튼에서 인자를 받아와야 비교 가능
@@ -20,6 +23,7 @@ const DashBoard = ({ addCard, setAddCard }) => {
 
     setAddCard([...unDeletedCard]);
   };
+
   return (
     <div>
       <h1 style={titleStyle}>나만의 포켓몬</h1>
