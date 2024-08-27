@@ -11,6 +11,10 @@ const DashBoard = () => {
     // justifyContent: "center",
   };
 
+  const dashboardStyle = {
+    display: "flex",
+  };
+
   const { addCard, setAddCard } = useContext(PokemonContext);
 
   //삭제함수
@@ -27,16 +31,18 @@ const DashBoard = () => {
   return (
     <div>
       <h1 style={titleStyle}>나만의 포켓몬</h1>
-      {addCard.map((card) => {
-        return (
-          <div key={card.id}>
-            <img src={card.img_url} />
-            <h5>{card.korean_name}</h5>
-            <span>No. {card.id}</span>
-            <button onClick={() => deleteCard(card.id)}>삭제</button>
-          </div>
-        );
-      })}
+      <div style={dashboardStyle}>
+        {addCard.map((card) => {
+          return (
+            <div key={card.id} style={{ display: "grid" }}>
+              <img src={card.img_url} />
+              <h5>{card.korean_name}</h5>
+              <span>No. {card.id}</span>
+              <button onClick={() => deleteCard(card.id)}>삭제</button>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
